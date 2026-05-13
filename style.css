@@ -122,3 +122,55 @@ body {
     border-color: transparent var(--summer-yellow) transparent transparent;
     opacity: 0.8;
 }
+/* --- B&I SHOP: MOBILE & ULTRA PERFORMANCE --- */
+:root {
+    --yellow: #FFEA00;
+    --black: #050505;
+    --glow: 0 0 20px rgba(255, 234, 0, 0.4);
+}
+
+body {
+    background: var(--black);
+    color: #fff;
+    font-family: 'Roboto Condensed', sans-serif;
+    margin: 0;
+}
+
+/* Grille adaptative pour mobile */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+/* Bouton Ultra-Couleur */
+.buy-btn {
+    background: var(--yellow);
+    color: #000;
+    border: none;
+    padding: 15px 30px;
+    font-weight: 900;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transform: skewX(-15deg);
+    transition: 0.2s;
+    width: 100%; /* Largeur totale sur mobile pour cliquer facilement */
+}
+
+.buy-btn:hover {
+    background: #fff;
+    box-shadow: var(--glow);
+    transform: skewX(-15deg) scale(1.02);
+}
+
+/* Formulaire optimisé pour le pouce (Mobile) */
+input, select, textarea {
+    width: 100%;
+    background: #151515;
+    border: 2px solid #333;
+    color: white;
+    padding: 15px;
+    margin-bottom: 10px;
+    font-size: 16px; /* Évite le zoom automatique sur iPhone */
+}
