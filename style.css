@@ -1,0 +1,124 @@
+/* --- B&I SHOP: MODE ULTRA DESIGN --- */
+:root {
+    --summer-yellow: #FFEA00; /* Jaune néon haute visibilité */
+    --neon-glow: 0 0 15px rgba(255, 234, 0, 0.6);
+    --dark-void: #020202; /* Noir absolu */
+    --gray-carbon: #111111; /* Gris fibre de carbone */
+    --transition-fast: 0.15s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+/* Base & Typo Agressive */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-transform: uppercase;
+}
+
+body {
+    background-color: var(--dark-void);
+    color: #fff;
+    font-family: 'Anton', 'Roboto Condensed', sans-serif;
+    letter-spacing: 0.5px;
+}
+
+/* --- LE BOUTON "ULTRA" --- */
+.buy-btn {
+    position: relative;
+    background: transparent;
+    border: 3px solid var(--summer-yellow);
+    color: var(--summer-yellow);
+    padding: 12px 35px;
+    font-size: 1.2rem;
+    font-weight: 900;
+    cursor: pointer;
+    transform: skewX(-15deg); /* Inclinaison plus forte pour la vitesse */
+    transition: var(--transition-fast);
+    overflow: hidden;
+}
+
+.buy-btn:hover {
+    background: var(--summer-yellow);
+    color: #000;
+    box-shadow: var(--neon-glow);
+    transform: skewX(-15deg) scale(1.05);
+}
+
+/* Effet de flash au hover */
+.buy-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(120deg, transparent, rgba(255,255,255,0.4), transparent);
+    transition: 0.4s;
+}
+
+.buy-btn:hover::before {
+    left: 100%;
+}
+
+/* --- CARTE PRODUIT DESIGN --- */
+.card {
+    background: var(--gray-carbon);
+    padding: 10px;
+    border: 2px solid #222;
+    position: relative;
+    transition: var(--transition-fast);
+}
+
+.card:hover {
+    border-color: var(--summer-yellow);
+    box-shadow: var(--neon-glow);
+}
+
+/* L'étiquette de prix style "Warning" */
+.price-tag {
+    position: absolute;
+    top: 20px;
+    left: -5px; /* Déborde légèrement pour le style */
+    background: var(--summer-yellow);
+    color: #000;
+    padding: 8px 25px;
+    font-size: 1.6rem;
+    font-weight: 900;
+    z-index: 10;
+    transform: skewX(-15deg);
+    box-shadow: 5px 5px 0px rgba(0,0,0,0.5);
+}
+
+/* --- IMAGE & TITRE --- */
+.card img {
+    width: 100%;
+    height: 550px;
+    object-fit: cover;
+    filter: contrast(1.1) brightness(0.9);
+    transition: var(--transition-fast);
+}
+
+.card:hover img {
+    filter: contrast(1.2) brightness(1.1);
+}
+
+.info h3 {
+    font-size: 1.8rem;
+    color: #fff;
+    margin-bottom: 5px;
+    text-shadow: 2px 2px 0px #000;
+}
+
+/* Coin Jaune signature */
+.card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 70px 70px 0;
+    border-color: transparent var(--summer-yellow) transparent transparent;
+    opacity: 0.8;
+}

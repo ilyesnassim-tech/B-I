@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>B&I SHOP | ELITE MOBILE</title>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Roboto+Condensed:wght@700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --yellow: #FFEA00;
+            --black: #050505;
+            --gray: #151515;
+            --skew: skewX(-12deg);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; text-transform: uppercase; font-family: 'Roboto Condensed', sans-serif; }
+        body { background: var(--black); color: white; line-height: 1.4; }
+
+        /* --- RESPONSIVE HEADER --- */
+        nav {
+            display: flex; 
+            justify-content: space-between; 
+            padding: 15px 5%; 
+            background: var(--black);
+            border-bottom: 3px solid var(--yellow);
+            position: sticky; top: 0; z-index: 100;
+        }
+        .logo { font-family: 'Anton'; color: var(--yellow); font-size: 1.8rem; transform: var(--skew); }
+
+        /* --- PRODUCT GRID (ADAPTÉ MOBILE) --- */
+        .container { padding: 20px; }
+        .grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+            gap: 25px; 
+        }
+        @media (max-width: 480px) { .grid { grid-template-columns: 1fr; } }
+
+        .card { 
+            background: var(--gray); 
+            padding: 10px; 
+            border: 1px solid #333; 
+            position: relative;
+        }
+        .card img { width: 100%; height: auto; border: 1px solid #222; }
+        .price { 
+            position: absolute; top: 20px; left: 0; 
+            background: var(--yellow); color: black; 
+            padding: 5px 15px; font-weight: 900; transform: var(--skew);
+        }
+
+        /* --- FORMULAIRE DE COMMANDE ULTRA DESIGN --- */
+        .order-section {
+            background: #111;
+            padding: 40px 5%;
+            margin-top: 50px;
+            border-top: 2px solid var(--yellow);
+        }
+        .order-section h2 { font-family: 'Anton'; font-size: 2.5rem; color: var(--yellow); margin-bottom: 20px; text-align: center; }
+
+        form {
+            max-width: 600px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .form-group { display: flex; flex-direction: column; gap: 5px; }
+        label { font-weight: 900; color: var(--yellow); font-size: 0.9rem; }
+        
+        input, select, textarea {
+            background: #222;
+            border: 1px solid #444;
+            padding: 12px;
+            color: white;
+            font-size: 1rem;
+            transform: skewX(-5deg);
+        }
+        input:focus, select:focus { border-color: var(--yellow); outline: none; }
+
+        .row { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+        @media (max-width: 480px) { .row { grid-template-columns: 1fr; } }
+
+        .submit-btn {
+            background: var(--yellow);
+            color: black;
+            border: none;
+            padding: 18px;
+            font-weight: 900;
+            font-size: 1.3rem;
+            cursor: pointer;
+            margin-top: 10px;
+            transform: var(--skew);
+            transition: 0.3s;
+        }
+        .submit-btn:hover { background: white; transform: var(--skew) scale(1.02); }
+
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">B&I <span style="color:white">SHOP</span></div>
+        <div style="color:var(--yellow); font-size: 1.5rem;">🛒</div>
+    </nav>
+
+    <div class="container">
+        <div class="grid">
+            <div class="card">
+                <div class="price">8.500 DZD</div>
+                <img src="de6ef8055e20d33d009b73e7ec6909e4.jpg" alt="Set 1">
+                <div style="display:flex; justify-content: space-between; padding: 15px 0;">
+                    <h3>Ensemble Elite UA</h3>
+                    <a href="#commander" class="logo" style="font-size: 1rem; text-decoration: none;">VITE !</a>
+                </div>
+            </div>
+            <div class="card">
+                <div class="price">9.200 DZD</div>
+                <img src="e22a01918853732105e1ba25221f100e.jpg" alt="Set 2">
+                <div style="display:flex; justify-content: space-between; padding: 15px 0;">
+                    <h3>Pack Performance Nike</h3>
+                    <a href="#commander" class="logo" style="font-size: 1rem; text-decoration: none;">VITE !</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PAGE DE COMMANDE -->
+    <section class="order-section" id="commander">
+        <h2>FINALISER LA COMMANDE</h2>
+        <form>
+            <div class="row">
+                <div class="form-group">
+                    <label>Nom</label>
+                    <input type="text" placeholder="Ton nom" required>
+                </div>
+                <div class="form-group">
+                    <label>Prénom</label>
+                    <input type="text" placeholder="Ton prénom" required>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Numéro de téléphone</label>
+                <input type="tel" placeholder="05XX XX XX XX" required>
+            </div>
+
+            <div class="form-group">
+                <label>Adresse de livraison (Wilaya / Commune)</label>
+                <textarea rows="3" placeholder="Ex: Oran, Es-Senia, Rue..." required></textarea>
+            </div>
+
+            <div class="row">
+                <div class="form-group">
+                    <label>Choisir le produit</label>
+                    <select required>
+                        <option value="">Sélectionner</option>
+                        <option>Ensemble Elite UA - 8.500 DZD</option>
+                        <option>Pack Performance Nike - 9.200 DZD</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Taille</label>
+                    <select required>
+                        <option value="">S / M / L / XL</option>
+                        <option>S</option>
+                        <option>M</option>
+                        <option>L</option>
+                        <option>XL</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Couleur préférée</label>
+                <input type="text" placeholder="Ex: Noir, Gris, Mint...">
+            </div>
+
+            <button type="submit" class="submit-btn">COMMANDER MAINTENANT</button>
+        </form>
+    </section>
+
+</body>
+</html>
